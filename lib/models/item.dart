@@ -22,4 +22,12 @@ class Item {
    this._price = map['price'];
  } 
 
+//konversi dari Item ke Map
+ Map<String, dynamic> toMap(){
+   Map<String, dynamic> map = Map<String, dynamic>();
+   map['id'] = this._id;
+   map['name'] = name;
+   map['price'] = price;
+   return map;
+ }
 }
