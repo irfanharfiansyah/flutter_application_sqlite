@@ -25,6 +25,8 @@ class _EntryFormState extends State<EntryForm> {
     if (item != null) {
       nameController.text = item.name;
       priceController.text = item.price.toString();
+      qtyController.text = item.qty.toString();
+      kodeController.text = item.kode.toString();
     }
     // rubah
     return Scaffold(
@@ -67,6 +69,34 @@ class _EntryFormState extends State<EntryForm> {
               onChanged: (value) {},
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: TextField(
+              controller: qtyController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Stok",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onChanged: (value) {},
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: TextField(
+              controller: kodeController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Kode barang",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onChanged: (value) {},
+            ),
+          ),
           // Tombol button
           Padding(
             padding: EdgeInsets.only(top: 20, bottom: 20),
@@ -85,11 +115,15 @@ class _EntryFormState extends State<EntryForm> {
                       item = Item(
                         nameController.text,
                         int.parse(priceController.text),
+                        int.parse(qtyController.text),
+                        int.parse(kodeController.text),
                       );
                     } else {
                       // merubah data
                       item.name = nameController.text;
                       item.price = int.parse(priceController.text);
+                      item.qty = int.parse(qtyController.text);
+                      item.kode = int.parse(kodeController.text);
                     }
                     // kembali ke halaman/layar sebelumnya dengan membawa objek item
                     Navigator.pop(context, item);
