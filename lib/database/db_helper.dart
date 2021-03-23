@@ -30,8 +30,8 @@ class DbHelper {
       CREATE TABLE item (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
-        price INTEGER
-        qty INTEGER
+        price INTEGER,
+        qty INTEGER,
         kode INTEGER
       )
     ''');
