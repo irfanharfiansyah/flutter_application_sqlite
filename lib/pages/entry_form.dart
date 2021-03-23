@@ -62,11 +62,52 @@ class _EntryFormState extends State<EntryForm> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              onChanged: (value){
-
-              },
+              onChanged: (value) {},
             ),
           ),
+          // Tombol button
+          Padding(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: Row(children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  color: Theme.of(context).primaryColorDark,
+                  textColor: Theme.of(context).primaryColorLight,
+                  child: Text(
+                    "Save",
+                    textScaleFactor: 1.5,
+                  ),
+                  onPressed: () {
+                    if (item == null) {
+                      // menambahkan data
+                      item = Item(
+                        nameController.text,
+                        int.parse(priceController.text),
+                      );
+                    } else {
+                      // merubah data
+                      item.name = nameController.text;
+                      item.price = int.parse(priceController.text);
+                    }
+                    // kembali ke halaman/layar sebelumnya dengan membawa objek item
+                    Navigator.pop(context, item);
+                  },
+                ),
+              ),
+              Container(width: 5),
+              // tombol untuk batal
+              Expanded(
+                child: RaisedButton(
+                  color: Theme.of(context).primaryColorDark,
+                  textColor: Theme.of(context).primaryColorLight,
+                  child: Text("Batal", textScaleFactor: 1.5),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ]),
+          )
         ]),
       ),
     );
