@@ -33,6 +33,7 @@ class _EntryFormState extends State<EntryForm> {
       body: Padding(
         padding: EdgeInsets.only(top: 15.0, left: 10, right: 10),
         child: ListView(children: <Widget>[
+          // input text untuk nama barang
           Padding(
             padding: EdgeInsets.only(top: 20, bottom: 20),
             child: TextField(
@@ -44,11 +45,28 @@ class _EntryFormState extends State<EntryForm> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              onChanged: (value){
-                // 
+              onChanged: (value) {
+                //
               },
             ),
-          )
+          ),
+          // input text untuk harga
+          Padding(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: TextField(
+              controller: priceController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Harga",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onChanged: (value){
+
+              },
+            ),
+          ),
         ]),
       ),
     );
