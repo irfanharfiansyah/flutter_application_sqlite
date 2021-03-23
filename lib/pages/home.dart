@@ -90,6 +90,9 @@ class _HomeState extends State<Home> {
             onTap: () async {
               var item =
                   await navigateToEntryForm(context, this.itemList[index]);
+                  if (item != null) {
+                    editListView(item);
+                  }
               // TODO 4 panggil fungsi untuk Edit data
             },
           ),
@@ -121,6 +124,14 @@ class _HomeState extends State<Home> {
 // Fungsi untuk menghapus List item
   void deleteListView(Item object) async {
     int result = await dbHelper.delete(object.id);
+    if (result > 0) {
+      updateListView();
+    }
+  }
+
+  // Fungsi untuk mengedit List item
+  void editListView(Item object) async {
+    int result = await dbHelper.update(object);
     if (result > 0) {
       updateListView();
     }
