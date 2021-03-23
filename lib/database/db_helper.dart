@@ -31,6 +31,8 @@ class DbHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
         price INTEGER
+        qty INTEGER
+        kode INTEGER
       )
     ''');
   }
