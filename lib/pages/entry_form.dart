@@ -16,6 +16,8 @@ class _EntryFormState extends State<EntryForm> {
   _EntryFormState(this.item);
   TextEditingController nameController = TextEditingController();
   TextEditingController priceController = TextEditingController();
+  TextEditingController qtyController = TextEditingController();
+  TextEditingController kodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
