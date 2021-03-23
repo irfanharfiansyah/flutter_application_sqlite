@@ -7,12 +7,10 @@ class Item {
   int _kode;
 
  get qty => this._qty;
-
- set qty(value) => this._qty = qty;
+ set qty(value) => this._qty = value;
 
  get kode => this._kode;
-
- set kode(value) => this._kode = kode;
+ set kode(value) => this._kode = value;
 
 int get id => _id;
 
