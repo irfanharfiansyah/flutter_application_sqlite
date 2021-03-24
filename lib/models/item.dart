@@ -7,8 +7,8 @@ class Item {
   int _kode;
   String _photo;
 
-//  String get photo => this._photo;
-//  set photo(String value) => this._photo = value;
+ String get photo => this._photo;
+ set photo(String value) => this._photo = value;
 
  get qty => this._qty;
  set qty(value) => this._qty = value;
@@ -25,7 +25,7 @@ get price => this._price;
 set price( value) => this._price = value;
 
  //konstruktor versi 1
- Item(this._name, this._price, this._qty, this._kode);
+ Item(this._name, this._price, this._qty, this._kode, this._photo);
 
 // //konstruktor versi 2: konversi dari Map ke Item
  Item.fromMap(Map<String, dynamic> map){
@@ -45,7 +45,7 @@ set price( value) => this._price = value;
    map['price'] = price;
    map['qty'] = qty;
    map['kode'] = kode;
-  //  map['photo'] = photo;
+   map['photo'] = photo;
    return map;
  }
 }
