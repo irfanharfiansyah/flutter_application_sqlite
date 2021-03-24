@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
                 Container(
                   width: 200,
                   child: Image.network(
-                      "https://resource.logitechg.com/content/dam/gaming/en/products/g413/g413-gallery-1.png"),
+                      '${this.itemList[index].photo.toString()}'),
                 ),
                 // Menampilkan Harga dari input
                 Container(

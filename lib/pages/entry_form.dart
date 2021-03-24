@@ -19,6 +19,7 @@ class _EntryFormState extends State<EntryForm> {
   TextEditingController priceController = TextEditingController();
   TextEditingController qtyController = TextEditingController();
   TextEditingController kodeController = TextEditingController();
+  TextEditingController photoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class _EntryFormState extends State<EntryForm> {
       priceController.text = item.price.toString();
       qtyController.text = item.qty.toString();
       kodeController.text = item.kode.toString();
+      photoController.text = item.photo;
     }
     // rubah
     return Scaffold(
@@ -64,6 +66,20 @@ class _EntryFormState extends State<EntryForm> {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Harga",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onChanged: (value) {},
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 20, bottom: 20),
+            child: TextField(
+              controller: photoController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Link Photo",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -127,6 +143,7 @@ class _EntryFormState extends State<EntryForm> {
                         int.parse(priceController.text),
                         int.parse(qtyController.text),
                         int.parse(kodeController.text),
+                        photoController.text,
                       );
                     } else {
                       // merubah data
@@ -134,6 +151,7 @@ class _EntryFormState extends State<EntryForm> {
                       item.price = int.parse(priceController.text);
                       item.qty = int.parse(qtyController.text);
                       item.kode = int.parse(kodeController.text);
+                      item.photo = photoController.text;
                     }
                     // kembali ke halaman/layar sebelumnya dengan membawa objek item
                     Navigator.pop(context, item);
