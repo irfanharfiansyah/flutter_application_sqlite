@@ -33,6 +33,7 @@ class DbHelper {
         price INTEGER,
         qty INTEGER,
         kode INTEGER,
+        photo TEXT
       )
     ''');
   }
