@@ -34,7 +34,7 @@ class _EntryFormState extends State<EntryForm> {
     // rubah
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Colors.black54,
         title: item == null ? Text("Tambah Data") : Text("Ubah Data"),
         leading: Icon(Icons.keyboard_arrow_left),
       ),
@@ -127,7 +127,7 @@ class _EntryFormState extends State<EntryForm> {
             child: Row(children: <Widget>[
               Expanded(
                 child: RaisedButton(
-                  color: Colors.teal,
+                  color: Colors.orange,
                   textColor: Colors.white,
                   child: Text(
                     "Simpan",
@@ -161,7 +161,7 @@ class _EntryFormState extends State<EntryForm> {
               // tombol untuk batal
               Expanded(
                 child: RaisedButton(
-                  color: Colors.black12,
+                  color: Colors.black,
                   textColor: Theme.of(context).primaryColorLight,
                   splashColor: Colors.white,
                   child: Text(

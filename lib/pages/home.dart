@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.menu),
-        backgroundColor: green1,
+        backgroundColor: Colors.black54,
         centerTitle: true,
         title: Text(
           "Daftar Item",
@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
       body: createListView(),
       floatingActionButton: Visibility(
         child: FloatingActionButton.extended(
-          backgroundColor: Colors.teal[100],
+          backgroundColor: Colors.orange,
           foregroundColor: Colors.black,
           onPressed: () async {
             // Respond to button press
@@ -75,8 +75,11 @@ class _HomeState extends State<Home> {
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
         return Container(
-          margin: EdgeInsets.only(top: 5),
+          margin: EdgeInsets.only(top: 9, left: 10, right: 10),
           child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
             color: Colors.white70,
             clipBehavior: Clip.antiAlias,
             child: Column(
@@ -108,8 +111,8 @@ class _HomeState extends State<Home> {
                   margin: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(
                     'Rp.${this.itemList[index].price.toString()}',
-                    style: body.copyWith(
-                        color: Colors.black,
+                    style: but.copyWith(
+                        color: Colors.black54,
                         fontWeight: FontWeight.w900,
                         fontSize: 18),
                     textAlign: TextAlign.center,
@@ -117,13 +120,18 @@ class _HomeState extends State<Home> {
                 ),
                 // Menambhakan button untuk Edit dan hapus
                 Container(
-                  color: green1,
+                  color: Colors.black87,
+                  padding: EdgeInsets.only(left: 5),
                   child: ButtonBar(
                     alignment: MainAxisAlignment.start,
                     children: [
                       FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
                         textColor: Colors.white,
-                        color: Colors.indigo[600],
+                        color: Colors.orange,
+                        splashColor: Colors.grey,
                         onPressed: () async {
                           // TODO 4 panggil fungsi untuk Edit data
                           var item = await navigateToEntryForm(
@@ -133,31 +141,35 @@ class _HomeState extends State<Home> {
                           }
                           // Perform some action
                         },
-                        child: Text(
-                          'EDIT',
-                          style: but.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 12),
+                        child: Container(
+                          child: Icon(
+                            Icons.edit,
+                            size: 19,
+                          ),
                         ),
                       ),
                       FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
                         textColor: Colors.white,
+                        splashColor: Colors.red,
                         color: Colors.brown[200],
                         onPressed: () async {
                           // TODO 3 panggil fungsi untuk Delete dari Db berdasarkan item
                           deleteListView(itemList[index]);
                         },
-                        child: Text(
-                          'HAPUS',
-                          style: but.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 12),
+                        child: Icon(
+                          Icons.delete_forever_rounded,
+                          size: 19,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 140),
+                        margin: EdgeInsets.only(left: 118),
                         child: Text(
                           'code : ${this.itemList[index].kode.toString()}',
                           style: title.copyWith(
-                            color: Colors.black.withOpacity(0.6),
+                            color: Colors.white.withOpacity(0.3),
                           ),
                         ),
                       ),
