@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_sqlite/models/item.dart';
+import 'package:flutter_application_sqlite/theme.dart';
 
 class EntryForm extends StatefulWidget {
   @override
@@ -31,7 +32,8 @@ class _EntryFormState extends State<EntryForm> {
     // rubah
     return Scaffold(
       appBar: AppBar(
-        title: item == null ? Text("Tambah") : Text("Ubah"),
+        backgroundColor: Colors.teal[200],
+        title: item == null ? Text("Tambah Data") : Text("Ubah Data"),
         leading: Icon(Icons.keyboard_arrow_left),
       ),
       body: Padding(
@@ -69,45 +71,53 @@ class _EntryFormState extends State<EntryForm> {
               onChanged: (value) {},
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
-            child: TextField(
-              controller: qtyController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "Stok",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(right: 15),
+                width: 178,
+                child: TextField(
+                  controller: qtyController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: "Stok",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onChanged: (value) {},
                 ),
               ),
-              onChanged: (value) {},
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
-            child: TextField(
-              controller: kodeController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: "Kode barang",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+              Container(
+                margin: EdgeInsets.only(top: 19),
+                width: 178,
+                child: TextField(
+                  controller: kodeController,
+                  keyboardType: TextInputType.number,
+                  maxLength: 4,
+                  decoration: InputDecoration(
+                    labelText: "Kode barang",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  onChanged: (value) {},
                 ),
               ),
-              onChanged: (value) {},
-            ),
+            ],
           ),
           // Tombol button
           Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
+            padding: EdgeInsets.only(top: 90, bottom: 20),
             child: Row(children: <Widget>[
               Expanded(
                 child: RaisedButton(
-                  color: Theme.of(context).primaryColorDark,
-                  textColor: Theme.of(context).primaryColorLight,
+                  color: Colors.teal,
+                  textColor: Colors.white,
                   child: Text(
-                    "Save",
-                    textScaleFactor: 1.5,
+                    "Simpan",
+                    style: title.copyWith(
+                        fontSize: 19, fontWeight: FontWeight.w800),
                   ),
                   onPressed: () {
                     if (item == null) {
@@ -130,13 +140,18 @@ class _EntryFormState extends State<EntryForm> {
                   },
                 ),
               ),
-              Container(width: 5),
+              Container(width: 25),
               // tombol untuk batal
               Expanded(
                 child: RaisedButton(
-                  color: Theme.of(context).primaryColorDark,
+                  color: Colors.black12,
                   textColor: Theme.of(context).primaryColorLight,
-                  child: Text("Batal", textScaleFactor: 1.5),
+                  splashColor: Colors.white,
+                  child: Text(
+                    "Batal",
+                    style: title.copyWith(
+                        fontSize: 19, fontWeight: FontWeight.w800),
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },

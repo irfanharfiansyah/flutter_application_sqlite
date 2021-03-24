@@ -5,6 +5,10 @@ class Item {
   int _price;
   int _qty;
   int _kode;
+  String _photo;
+
+//  String get photo => this._photo;
+//  set photo(String value) => this._photo = value;
 
  get qty => this._qty;
  set qty(value) => this._qty = value;
@@ -30,6 +34,7 @@ set price( value) => this._price = value;
    this._price = map['price'];
    this._qty = map['qty'];
    this._kode = map['kode'];
+   this._photo = map['photo'];
  } 
 
 // //konversi dari Item ke Map
@@ -40,6 +45,7 @@ set price( value) => this._price = value;
    map['price'] = price;
    map['qty'] = qty;
    map['kode'] = kode;
+  //  map['photo'] = photo;
    return map;
  }
 }

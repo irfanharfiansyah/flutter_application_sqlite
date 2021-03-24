@@ -32,7 +32,7 @@ class DbHelper {
         name TEXT,
         price INTEGER,
         qty INTEGER,
-        kode INTEGER
+        kode INTEGER,
       )
     ''');
   }
