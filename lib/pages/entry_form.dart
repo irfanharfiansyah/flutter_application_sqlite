@@ -26,7 +26,7 @@ class _EntryFormState extends State<EntryForm> {
     // kondisi,
     if (item != null) {
       nameController.text = item.name;
-      priceController.text = item.price.toString();
+      priceController.text = item.price;
       qtyController.text = item.qty.toString();
       kodeController.text = item.kode.toString();
       photoController.text = item.photo;
@@ -77,7 +77,6 @@ class _EntryFormState extends State<EntryForm> {
             padding: EdgeInsets.only(top: 20, bottom: 20),
             child: TextField(
               controller: photoController,
-              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Link Photo",
                 border: OutlineInputBorder(
@@ -140,7 +139,7 @@ class _EntryFormState extends State<EntryForm> {
                       // menambahkan data
                       item = Item(
                         nameController.text,
-                        int.parse(priceController.text),
+                        priceController.text,
                         int.parse(qtyController.text),
                         int.parse(kodeController.text),
                         photoController.text,
@@ -148,7 +147,7 @@ class _EntryFormState extends State<EntryForm> {
                     } else {
                       // merubah data
                       item.name = nameController.text;
-                      item.price = int.parse(priceController.text);
+                      item.price = priceController.text;
                       item.qty = int.parse(qtyController.text);
                       item.kode = int.parse(kodeController.text);
                       item.photo = photoController.text;

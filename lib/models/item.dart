@@ -2,7 +2,7 @@
 class Item {
   int _id;
   String _name;
-  int _price;
+  String _price;
   int _qty;
   int _kode;
   String _photo;
@@ -21,8 +21,8 @@ int get id => _id;
 String get name => this._name;
 set name(String value) => this._name = value;
 
-get price => this._price;
-set price( value) => this._price = value;
+String get price => this._price;
+set price(String value) => this._price = value;
 
  //konstruktor versi 1
  Item(this._name, this._price, this._qty, this._kode, this._photo);

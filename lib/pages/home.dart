@@ -99,13 +99,13 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  width: 200,
-                  child: Image.network(
-                      '${this.itemList[index].photo.toString()}'),
+                  width: 150,
+                  child:
+                      Image.network('${this.itemList[index].photo.toString()}'),
                 ),
                 // Menampilkan Harga dari input
                 Container(
-                  margin: EdgeInsets.only(bottom: 10),
+                  margin: EdgeInsets.only(bottom: 10, top: 10),
                   child: Text(
                     'Rp.${this.itemList[index].price.toString()}',
                     style: body.copyWith(
